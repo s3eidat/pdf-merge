@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>PDF Merge — Combine PDF Files Online, Free &amp; Private | S3eidat Tools</title>
+<meta name="description" content="Merge several PDF files into one in your browser. Drag to reorder, pick page ranges per file, see page counts. Free, no upload, no sign-up.">
+<meta property="og:title" content="PDF Merge — free, private PDF combiner">
+<meta property="og:description" content="Combine PDFs into one, reorder, choose page ranges. Runs 100% in your browser, nothing uploaded.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+<script src="lib/pdf-lib.min.js"></script>
+</head>
+<body data-tool="pdf-merge">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>PDF Merge</h1>
+    <p>Combine PDF files into one. Drag to set the order, pick the pages you want from each file. Your files never leave this device.</p>
+  </section>
+
+  <section class="card">
+    <label class="drop" id="drop">
+      <input type="file" accept=".pdf,application/pdf" multiple hidden>
+      <svg class="i"><use href="#i-upload"/></svg>
+      <b>Drop PDF files here</b>
+      <span>or click to choose. Add as many as you like, in any order.</span>
+    </label>
+
+    <div id="listWrap" hidden>
+      <div class="row between mt">
+        <h2>Files <small id="count"></small></h2>
+        <div class="row">
+          <button class="btn ghost small" id="sortName">Sort by name</button>
+          <button class="btn ghost small" id="clear"><svg class="i"><use href="#i-trash"/></svg>Clear all</button>
+        </div>
+      </div>
+      <p class="faint pm-tip">Drag files to reorder (or use the arrows). Leave “Pages” empty for all pages, or type ranges like <code>1-3, 5, 8-</code>.</p>
+      <ol class="pm-list" id="list"></ol>
+
+      <div class="row mt pm-foot">
+        <span class="chip accent" id="total"></span>
+        <span class="grow"></span>
+        <label class="field pm-name">Output file name<input class="input" id="outName" value="merged.pdf" spellcheck="false" dir="auto"></label>
+        <button class="btn primary big" id="merge"><svg class="i"><use href="#i-download"/></svg>Merge &amp; download</button>
+      </div>
+      <p class="faint" id="result"></p>
+    </div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
